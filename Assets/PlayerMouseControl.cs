@@ -11,6 +11,7 @@ public class PlayerMouseControl : MonoBehaviour
     private Vector3 targetPos;
     private Animator animator;
     private bool isRunning = false;
+    private bool isAttacking = false;
 
     private void Start()
     {
@@ -22,7 +23,12 @@ public class PlayerMouseControl : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!PlayerStats.isAlive)
+        {
+            return;
+        }
+        
+        if (Input.GetMouseButton(1) && !isAttacking)
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -31,6 +37,16 @@ public class PlayerMouseControl : MonoBehaviour
             {
                 targetPos = hit.point;
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            animator.SetTrigger("Stab");
+            isAttacking = true;
+        }
+        else if (Input.GetKeyUp(KeyCode.Q))
+        {
+            isAttacking = false;
         }
 
         if (Vector3.Distance(transform.position, targetPos) > 1f)
@@ -43,6 +59,12 @@ public class PlayerMouseControl : MonoBehaviour
         }
         else
         {
+            isRunning = false;
+        }
+
+        if (isAttacking)
+        {
+            targetPos = transform.position;
             isRunning = false;
         }
         
