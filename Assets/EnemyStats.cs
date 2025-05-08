@@ -1,31 +1,18 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class PlayerStats : MonoBehaviour
+public class EnemyStats : MonoBehaviour
 {
-    public static Action<int> OnHeal;
-    public static Action<int> OnDamage;
-    
     public int maxHealth = 100;
     private int currentHealth;
     
     public float invulnerableTime = 0.2f;
     private float lastHitTimer = 0;
-    
-    public Image healthBar;
-    
+
     public static bool isAlive = true;
     private Animator animator;
     
-    private void OnEnable()
-    {
-        OnHeal += TakeHeal;
-        OnDamage += TakeDamage;
-    }
-
     void Start()
     {
         currentHealth = maxHealth;
@@ -34,7 +21,7 @@ public class PlayerStats : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("EnemyWeapon") && isAlive)
+        if (other.gameObject.CompareTag("PlayerWeapon") && isAlive)
         {
             if (currentHealth <= 0 )
             {
@@ -47,21 +34,11 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    public float GetHealthRatio()
-    {
-        return (float)currentHealth / maxHealth;
-    }
-    
     private void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        Debug.Log("Player: " + currentHealth);
-        animator.SetTrigger("HitBack");
-    }
-    
-    private void TakeHeal(int health)
-    {
-        currentHealth += health;
-        Debug.Log("Player: " + currentHealth);
+        animator.SetTrigger("Hurt");
+        
+        Debug.Log("Enemy: " + currentHealth);
     }
 }

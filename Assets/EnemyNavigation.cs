@@ -5,11 +5,20 @@ using UnityEngine.AI;
 
 public class EnemyNavigation : MonoBehaviour
 {
+    [Header("Movement")]
     public Transform target;
     public float distance = 10;
     public float force = 1;
+    
+    [Header("Attack")]
     public GameObject arrow;
+    public Transform arrowPoint;
+    
+    public float attackDelay = 2;  
+    private float lastAttackTime = 0;
+    
     private GameObject currentArrow;
+    
     private NavMeshAgent agent;
     private Animator animator;
 
@@ -24,16 +33,30 @@ public class EnemyNavigation : MonoBehaviour
 
     private void Update()
     {
-        if (Vector3.Distance(transform.position, target.position) < distance)
+        if (EnemyStats.isAlive)
         {
-            Shoot();
-            agent.isStopped = true;
-            transform.LookAt(target);
+            if (Vector3.Distance(transform.position, target.position) <= distance)
+            {
+                if (Time.time > lastAttackTime + attackDelay)
+                {
+                    lastAttackTime = Time.time;
+                    Shoot();
+                }
+               
+                agent.isStopped = true;
+                transform.LookAt(target);
+            }
+            else
+            {
+                agent.isStopped = false;
+                agent.SetDestination(target.position);
+            }
+            
+            animator.SetFloat("Speed", agent.velocity.magnitude);
         }
         else
         {
-            agent.isStopped = false;
-            agent.SetDestination(target.position);
+            agent.isStopped = true;
         }
     }
 
@@ -42,8 +65,12 @@ public class EnemyNavigation : MonoBehaviour
         if (!currentArrow.activeSelf)
         {
             animator.SetTrigger("Shoot");
-            currentArrow.transform.position = transform.position + new Vector3(0,2);
-            currentArrow.SetActive(true);
+            
+            if (arrowPoint != null)
+            {
+                currentArrow.transform.position = arrowPoint.position;
+                currentArrow.SetActive(true);
+            }
             
             Vector3 targetDir = new Vector3(target.position.x - transform.position.x, 0, target.position.z - transform.position.z);
             currentArrow.GetComponent<Rigidbody>().AddForce(targetDir * force , ForceMode.Impulse);
