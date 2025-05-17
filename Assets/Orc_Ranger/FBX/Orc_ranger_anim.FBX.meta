@@ -36,8 +36,8 @@ ModelImporter:
       name: Running
       takeName: Take 001
       internalID: 1827226128182048838
-      firstFrame: 219
-      lastFrame: 239
+      firstFrame: 241
+      lastFrame: 270
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -73,7 +73,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -94,8 +94,8 @@ ModelImporter:
       name: Shoot_1
       takeName: Take 001
       internalID: 3060872287085348379
-      firstFrame: 20
-      lastFrame: 50
+      firstFrame: 0
+      lastFrame: 51
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -123,8 +123,8 @@ ModelImporter:
       name: Shoot_2
       takeName: Take 001
       internalID: 6641085478485924818
-      firstFrame: 0
-      lastFrame: 270
+      firstFrame: 49
+      lastFrame: 141
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -153,7 +153,7 @@ ModelImporter:
       takeName: Take 001
       internalID: -5059006814000262888
       firstFrame: 175
-      lastFrame: 195
+      lastFrame: 193
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -178,7 +178,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Dead
+      name: Death
       takeName: Take 001
       internalID: 6234510843852800090
       firstFrame: 142

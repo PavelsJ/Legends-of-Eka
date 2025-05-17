@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -5327,7 +5326,6 @@ GameObject:
   - component: {fileID: 78403397}
   - component: {fileID: 78403396}
   - component: {fileID: 78403395}
-  - component: {fileID: 78403400}
   - component: {fileID: 78403399}
   m_Layer: 0
   m_Name: Sphere (3)
@@ -5444,19 +5442,6 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &78403400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 78403394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea1229e9651647147bb89ddfb385e67b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1993591217}
 --- !u!1 &80003322
 GameObject:
   m_ObjectHideFlags: 0
@@ -11331,7 +11316,6 @@ GameObject:
   - component: {fileID: 182059165}
   - component: {fileID: 182059164}
   - component: {fileID: 182059163}
-  - component: {fileID: 182059168}
   - component: {fileID: 182059167}
   m_Layer: 0
   m_Name: Sphere (6)
@@ -11448,19 +11432,6 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &182059168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 182059162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea1229e9651647147bb89ddfb385e67b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1993591217}
 --- !u!1 &184503995
 GameObject:
   m_ObjectHideFlags: 0
@@ -43673,7 +43644,6 @@ GameObject:
   - component: {fileID: 667436379}
   - component: {fileID: 667436378}
   - component: {fileID: 667436377}
-  - component: {fileID: 667436382}
   - component: {fileID: 667436381}
   m_Layer: 0
   m_Name: Sphere (5)
@@ -43790,19 +43760,6 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &667436382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 667436376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea1229e9651647147bb89ddfb385e67b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1993591217}
 --- !u!1 &669795389
 GameObject:
   m_ObjectHideFlags: 0
@@ -58161,7 +58118,6 @@ GameObject:
   - component: {fileID: 867794515}
   - component: {fileID: 867794514}
   - component: {fileID: 867794513}
-  - component: {fileID: 867794518}
   - component: {fileID: 867794517}
   m_Layer: 0
   m_Name: Sphere (4)
@@ -58278,19 +58234,6 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &867794518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 867794512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea1229e9651647147bb89ddfb385e67b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1993591217}
 --- !u!1 &867849617
 GameObject:
   m_ObjectHideFlags: 0
@@ -67225,7 +67168,6 @@ GameObject:
   - component: {fileID: 992945560}
   - component: {fileID: 992945559}
   - component: {fileID: 992945558}
-  - component: {fileID: 992945563}
   - component: {fileID: 992945562}
   m_Layer: 0
   m_Name: Sphere (1)
@@ -67342,19 +67284,6 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &992945563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 992945557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea1229e9651647147bb89ddfb385e67b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1993591217}
 --- !u!1 &994064890
 GameObject:
   m_ObjectHideFlags: 0
@@ -74094,7 +74023,6 @@ GameObject:
   - component: {fileID: 1125943137}
   - component: {fileID: 1125943136}
   - component: {fileID: 1125943135}
-  - component: {fileID: 1125943140}
   - component: {fileID: 1125943139}
   m_Layer: 0
   m_Name: Sphere
@@ -74211,19 +74139,6 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1125943140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1125943134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea1229e9651647147bb89ddfb385e67b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1993591217}
 --- !u!1 &1126414719
 GameObject:
   m_ObjectHideFlags: 0
@@ -104920,7 +104835,6 @@ GameObject:
   - component: {fileID: 1588091296}
   - component: {fileID: 1588091295}
   - component: {fileID: 1588091294}
-  - component: {fileID: 1588091299}
   - component: {fileID: 1588091298}
   m_Layer: 0
   m_Name: Sphere (2)
@@ -105037,19 +104951,6 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1588091299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1588091293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea1229e9651647147bb89ddfb385e67b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1993591217}
 --- !u!1 &1588258057
 GameObject:
   m_ObjectHideFlags: 0
@@ -132519,28 +132420,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1.03, z: 0}
---- !u!114 &1993591216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1993591212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a99e0e1e08ec2da49b39d72eb1f28037, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 1993591213}
-  characterController: {fileID: 1993591215}
-  moveSpeed: -20
-  swordColliders:
-  - {fileID: 1031186659}
-  - {fileID: 284865403}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 17
-  laserDot: {fileID: 1396112225}
 --- !u!4 &1993591217 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5bc23b14aaf64dc4096bff5098b05c0a, type: 3}
@@ -139832,9 +139711,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5bc23b14aaf64dc4096bff5098b05c0a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1993591213}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5bc23b14aaf64dc4096bff5098b05c0a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1993591216}
     - targetCorrespondingSourceObject: {fileID: -3565695668601879429, guid: 5bc23b14aaf64dc4096bff5098b05c0a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1031186659}
