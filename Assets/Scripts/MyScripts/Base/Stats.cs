@@ -1,14 +1,26 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class Stats : MonoBehaviour
 {
+    public event Action<float, float> OnHealthChanged;
+
+    public int CurrentHealth
+    {
+        get => currentHealth;
+        set
+        {
+            currentHealth = Mathf.Clamp(value, 0, maxHealth);
+            OnHealthChanged?.Invoke(currentHealth, maxHealth);
+        }
+    }
+    
     [Header("Health")]
     public int maxHealth = 100;
     private int currentHealth;
-    public Image healthBar;
     
     internal bool isAlive = true;
     internal bool isHit = false;    
@@ -19,21 +31,26 @@ public class Stats : MonoBehaviour
     
     [Header("Passive")]
     public PassiveType passiveType = PassiveType.None;
+    
     public int critMultyplier = 2;
     public int bleedDamage = 2;
     public enum PassiveType { None, Critical, Bleed }
     
     [Header("Invulnerability")]
     public float invulnerableTime = 0.2f;
-    public float attackLockTime = 1f;
-    private float lastHitTime = -Mathf.Infinity;
+    public float stunTime = 1f;
     
+    private Coroutine attackLockCoroutine;
+    private float lastHitTime = -Mathf.Infinity;
+
     private Animator animator;
     
-    void Start()
+    void Awake()
     {
         animator = GetComponent<Animator>();
         currentHealth = maxHealth;
+        
+        OnHealthChanged?.Invoke(CurrentHealth, maxHealth);
     }
     
     protected internal virtual void TakeDamage(int damage)
@@ -42,69 +59,52 @@ public class Stats : MonoBehaviour
             return;
 
         lastHitTime = Time.time;
-        currentHealth -= damage;
+        CurrentHealth -= damage;
         
-        currentHealth = Mathf.Max(currentHealth, 0);
-        UpdateHealthBar();
-
         animator.SetTrigger("Hurt");
         Debug.Log($"{gameObject.name} current health: {currentHealth}/{maxHealth}.");
         
-        if (!isHit)
-        {
-            StartCoroutine(TemporarilyDisableAttack());
-        }
-
         if (currentHealth <= 0)
         {
             Die();
         }
+        
+        if (!isHit)
+        {
+            if (attackLockCoroutine == null)
+            {
+                attackLockCoroutine = StartCoroutine(TemporarilyDisableAttack());
+            }
+        }
     }
-    
+
     private IEnumerator TemporarilyDisableAttack()
     {
         isHit = true;
-        yield return new WaitForSeconds(attackLockTime);
+        yield return new WaitForSeconds(stunTime);
         isHit = false;
+        
+        attackLockCoroutine = null;
     }
     
     public virtual void TakeHeal(int healAmount)
     {
         if (!isAlive) return;
 
-        currentHealth = Mathf.Min(currentHealth + healAmount, maxHealth);
-        UpdateHealthBar();
+        CurrentHealth = Mathf.Min(currentHealth + healAmount, maxHealth);
     }
     
     protected virtual void Die()
     {
         isAlive = false;
+        CurrentHealth = 0;
         
         animator.SetTrigger("Death");
-        
         Debug.Log($"{gameObject.name} died.");
     }
 
     internal int GetRandomDamage()
     {
         return Random.Range(minDamage, maxDamage);
-    }
-    
-    public int GetCurrentHealth()
-    {
-        return currentHealth;
-    }
-
-    internal bool IsAlive()
-    {
-        return isAlive;
-    }
-    
-    private void UpdateHealthBar()
-    {
-        if (healthBar != null)
-        {
-            healthBar.fillAmount = (float)currentHealth / maxHealth;
-        }
     }
 }

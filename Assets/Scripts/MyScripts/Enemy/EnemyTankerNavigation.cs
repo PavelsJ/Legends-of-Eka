@@ -35,7 +35,6 @@ public class EnemyTankerNavigation : Enemy
 
     private void DisableWeapon(int index)
     {
-        isAttacking = false;
         defCols[index].enabled = false;
     }
 
@@ -46,8 +45,12 @@ public class EnemyTankerNavigation : Enemy
 
     private void DisableSmash()
     {
-        isAttacking = false;
         aoeCol.enabled = false;
+    }
+    
+    private void EndAttackAfter()
+    {
+        isAttacking = false;
     }
 
     private void DisableAll()

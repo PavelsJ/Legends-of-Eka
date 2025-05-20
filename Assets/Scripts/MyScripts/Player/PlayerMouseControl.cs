@@ -75,7 +75,7 @@ public class PlayerMouseControl : MonoBehaviour
             }
         }
 
-        if (!isAttacking)
+        if (!isAttacking && !stats.isHit)
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
@@ -86,12 +86,20 @@ public class PlayerMouseControl : MonoBehaviour
                 PerformAttack(AttackType.AoE);
             }
         }
+        else
+        {
+            StopMovement();
+        }
     }
 
     private void PerformAttack(AttackType type)
     {
+        if (stats.CurrentStamina < 20f) return;
+        
         isAttacking = true;
         agent.ResetPath();
+
+        stats.UseStamina(20f);
 
         switch (type)
         {
@@ -113,6 +121,15 @@ public class PlayerMouseControl : MonoBehaviour
         if (isMoving)
         {
             transform.rotation = Quaternion.LookRotation(agent.velocity.normalized);
+        }
+    }
+    
+    private void StopMovement()
+    {
+        if (agent.hasPath)
+        {
+            agent.ResetPath();
+            animator.SetBool("Run", false);
         }
     }
 

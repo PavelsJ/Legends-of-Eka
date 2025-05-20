@@ -390,14 +390,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 20
-  healthBar: {fileID: 370364282096904990}
   maxDamage: 8
   minDamage: 4
   passiveType: 0
   critMultyplier: 2
   bleedDamage: 2
-  invulnerableTime: 0.5
-  attackLockTime: 1
+  invulnerableTime: 0.2
+  stunTime: 1
+  expAmount: 40
+  healthBar: {fileID: 370364282096904990}
 --- !u!114 &1255903303384655609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -962,7 +963,7 @@ MonoBehaviour:
   m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 1
+  m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &4196488404425847104

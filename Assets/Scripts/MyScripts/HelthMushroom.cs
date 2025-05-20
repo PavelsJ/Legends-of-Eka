@@ -11,11 +11,14 @@ public class HelthMushroom : Item
         Stats stats = entity.GetComponent<Stats>();
         if (stats != null)
         {
-            stats.TakeHeal(health);
-            Debug.Log(entity.name + " takes " + health + " health");
+            if (stats.CurrentHealth < stats.maxHealth)
+            {
+                stats.TakeHeal(health);
+                Debug.Log(entity.name + " takes " + health + " health");
+                
+                Destroy(gameObject);
+            }
         }
-        
-        Destroy(gameObject);
     }
     
 }

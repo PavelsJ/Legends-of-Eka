@@ -31,6 +31,8 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        if(target == null) return;
+        
         if (!stats.isAlive)
         {
             agent.isStopped = true;
@@ -41,7 +43,7 @@ public class Enemy : MonoBehaviour
 
         if (!isAttacking && !stats.isHit)
         {
-            if (distToTarget <= attackDistance && Time.time > lastAttackTime + attackCooldown && !stats.isHit)
+            if (distToTarget <= attackDistance && Time.time > lastAttackTime + attackCooldown)
             {
                 agent.isStopped = true;
                 isAttacking = true;
@@ -57,10 +59,23 @@ public class Enemy : MonoBehaviour
 
             animator.SetFloat("Speed", agent.velocity.magnitude);
         }
+        else
+        {
+            StopMovement();
+        }
 
         if (distToTarget <= attackDistance)
         {
             transform.LookAt(new Vector3(target.position.x, transform.position.y, target.position.z));
+        }
+    }
+    
+    private void StopMovement()
+    {
+        if (agent.hasPath)
+        {
+            agent.ResetPath();
+            animator.SetFloat("Speed", 0);
         }
     }
 
